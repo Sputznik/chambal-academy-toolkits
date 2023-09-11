@@ -1720,3 +1720,32 @@ input[type="range"]::-moz-range-progress {
   position: fixed;
   right: 30px;
 }
+
+/* PRIMARY NAVBAR */
+body {
+  padding-top: 76px;
+}
+
+.navbar-brand {
+  display: inline-block;
+}
+
+.navbar-brand .desktop-logo {
+  max-width: 118px;
+  width: 100%;
+}
+
+.cbat-nav.navbar .dropdown-menu > li > a {
+  color: rgba(0,0,0,.55);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 768px){
+  .cbat-nav.navbar > .container {
+    margin: 0 24px;
+    padding: 0 12px;
+  }
+
+  .cbat-nav.navbar .navbar-collapse.collapse.show {
+    display: block !important;
+  }
+}
