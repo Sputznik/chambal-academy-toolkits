@@ -22,7 +22,8 @@ $inc_files = array(
   'lib/class-cbat-theme.php',
   'lib/wp-bootstrap-five-navwalker.php',
   'lib/class-cbat-base.php',
-  'lib/class-cbat-ct-cpt.php'
+  'lib/class-cbat-ct-cpt.php',
+  'lib/class-cbat-toolkits-access.php'
 );
 
 foreach( $inc_files as $inc_file ){ require_once( $inc_file ); }
