@@ -883,24 +883,15 @@ jQuery(document).ready(function() {
 
 
   // image slider
-  var images;
-  function jsonFlickrApi2(data) {
-    console.log(data);
-    images = data.photos.photo.map(function (photo) {
-      return photo.url_z;
-    });
+  function jsonFlickrApi2(){
+    var asset_path = "<?php _e( CBAT_ASSET_IMAGES ); ?>";
+    var images = ["00_Door_Corrected.png", "01_Door_Corrected.png","02_Door_Corrected.png","03_Door_Corrected.png","04_Door_Corrected.png"];
 
-    // images = [];
-    /*images = [
-            './assets/images/Image.png',
-            './assets/images/Image1.png',
-            './assets/images/Image2.png',
-            './assets/images/Image3.png',
-  ];*/
+    // console.log(images);
 
     image_elements = images.map(function (mg, i) {
       var img = document.createElement("img");
-      img.src = mg;
+      img.src = `${asset_path}/${mg}`;
       // var numb = document.createElement("h2");
       // numb.textContent = i + 1;
       var fig = document.createElement("figure");
@@ -914,7 +905,7 @@ jQuery(document).ready(function() {
     slider.min = 0;
     slider.max = slider.value = images.length - 1;
     var setVal = 25 * slider.value;
-    console.log(setVal);
+    // console.log(setVal);
     if (setVal < 95) {
       SetWidth.style.width = setVal + "%";
     } else {
@@ -942,6 +933,7 @@ jQuery(document).ready(function() {
     });
   }
 
+  jsonFlickrApi2();
 
 </script>
 <!--PAssword Check Script-->
