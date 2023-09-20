@@ -8,6 +8,7 @@ class CBAT_THEME {
   public function __construct() {
 
     add_action( 'wp_enqueue_scripts', array( $this, 'assets' ) );  // LOAD ASSETS
+    add_action( 'admin_enqueue_scripts', array( $this, 'admin_assets' ) );  // LOAD ADMIN ASSETS
 
   }
 
@@ -24,6 +25,17 @@ class CBAT_THEME {
     wp_enqueue_script( 'owl-carousel', CBAT_THEME_URI.'/assets/owlcarousel/owl.carousel.js', array('jquery'), null, true );
     wp_enqueue_script( 'jsonFlickrApi', CBAT_THEME_URI.'/assets/js/jsonFlickrApi.js', array('jquery'), null, true );
     wp_enqueue_script( 'bs-dropdown-ml', CBAT_THEME_URI.'/assets/js/bootstrap-dropdown-ml-hack.js', array('jquery'), null, true );
+  }
+
+  function admin_assets( $hook ){
+    global $post;
+
+    wp_enqueue_style( 'cbat-admin-css', CBAT_THEME_URI.'/assets/css/admin.css', array(), CBAT_THEME_VERSION );
+
+    if( ( $hook === 'post-new.php' || $hook === 'post.php' ) && 'ct' === $post->post_type ){
+      wp_enqueue_script( 'cbat-autocomplete', CBAT_THEME_URI.'/assets/js/autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), CBAT_THEME_VERSION, true );
+    }
+
   }
 
 }
