@@ -1,6 +1,6 @@
 <?php
 /**
- * This template will display category page
+ * This template will display digital security chapter three
  */
 get_header();
 ?>
