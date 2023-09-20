@@ -786,7 +786,7 @@ get_header();
             <div class="box-desc">
               <div class="box-title">सिक्योरिटी ( सुरक्षा )</div>
               <div class="arrow-section">
-                <a href="<?php _e( CBAT_SITE_URL ); ?>/digital-security-ch-2">
+                <a href="<?php _e( CBAT_SITE_URL ); ?>/ct/digital-security-ch-2">
                   <img src="<?php _e( CBAT_ASSET_IMAGES ); ?>/arrow-icon.png" width="25" />
                 </a>
               </div>
@@ -799,7 +799,7 @@ get_header();
             <div class="box-desc">
               <div class="box-title">रिपोर्ट &amp; ब्लॉक करना</div>
               <div class="arrow-section">
-                <a href="<?php _e( CBAT_SITE_URL ); ?>/digital-security-ch-3">
+                <a href="<?php _e( CBAT_SITE_URL ); ?>/ct/digital-security-ch-3">
                   <img src="<?php _e( CBAT_ASSET_IMAGES ); ?>/arrow-icon.png" width="25" />
                 </a>
               </div>
@@ -812,7 +812,7 @@ get_header();
             <div class="box-desc">
               <div class="box-title">कानूनी मदद &amp; सहारा</div>
               <div class="arrow-section">
-                <a href="<?php _e( CBAT_SITE_URL ); ?>/digital-security-ch-4">
+                <a href="<?php _e( CBAT_SITE_URL ); ?>/ct/digital-security-ch-4">
                   <img src="<?php _e( CBAT_ASSET_IMAGES ); ?>/arrow-icon.png" width="25" />
                 </a>
               </div>

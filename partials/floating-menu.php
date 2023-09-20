@@ -42,7 +42,7 @@
     </li>
     <?php foreach( $links as $slug => $link ): ?>
       <li class="dropdown">
-        <a href="<?php _e( $slug ); ?>" class="dropdown-item <?php if( is_page( $slug ) ){ echo 'active'; }?>">
+        <a href="<?php _e( CBAT_SITE_URL.'/ct/'.$slug ); ?>" class="dropdown-item <?php if( is_single( $slug ) ){ echo 'active'; }?>">
           <?php _e( $link['text'] ); ?>
           <img
             src="<?php _e( CBAT_ASSET_IMAGES ); ?>/right-arrow.png"
