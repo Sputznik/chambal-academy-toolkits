@@ -101,10 +101,12 @@ class CBAT_Toolkits_Access extends CBAT_BASE {
   // CHECK IF THE USER IS ALLOWED TO ACCESS THE TOOLKIT
   function is_user_allowed( $toolkit_id, $user ){
 
+    $cbat_woocommerce = CBAT_WOOCOMMERCE::getInstance();
+
     // GET THE TOOLKIT PRODUCT METAFIELD
     $linked_product_id = get_post_meta( $toolkit_id, 'linked_product_id', true );
 
-    if( $linked_product_id && $this->is_user_purchased_product( $linked_product_id, $user->ID ) ) return true;
+    if( $linked_product_id && $cbat_woocommerce->is_user_purchased_product( $linked_product_id, $user->ID ) ) return true;
 
     return false;
   }
@@ -112,10 +114,6 @@ class CBAT_Toolkits_Access extends CBAT_BASE {
   // CHECK IF A USER IS ASSIGNED A ROLE
   function has_user_role( $user, $role = 'administrator' ){
     return ( isset( $user->roles ) && is_array( $user->roles ) && in_array( $role, $user->roles ) );
-  }
-
-  function is_user_purchased_product( $product_id, $user_id ){
-    return class_exists( 'woocommerce' ) ? wc_customer_bought_product( '', $user_id, $product_id ) : false;
   }
 
 }

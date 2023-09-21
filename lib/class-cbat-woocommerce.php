@@ -9,7 +9,7 @@ class CBAT_Woocommerce extends CBAT_BASE {
 
     // SKIP CART PAGE
     add_filter('woocommerce_add_to_cart_redirect', function( $redirect_url, $product ){
-      wc_get_checkout_url();
+      return wc_get_checkout_url();
     }, 10, 2 );
 
   }
