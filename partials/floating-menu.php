@@ -35,8 +35,9 @@
         <img
           src="<?php _e( CBAT_ASSET_IMAGES ); ?>/Header_close_burger.png"
           width="20"
-          class="ms-auto"
-          data-bs-toggle="dropdown"
+          type="button"
+          aria-label="Close Dropdown"
+          class="ms-auto close-floating-menu"
         />
       </div>
     </li>

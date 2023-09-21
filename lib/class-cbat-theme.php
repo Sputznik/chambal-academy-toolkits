@@ -24,6 +24,7 @@ class CBAT_THEME {
     wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true );
     wp_enqueue_script( 'owl-carousel', CBAT_THEME_URI.'/assets/owlcarousel/owl.carousel.js', array('jquery'), null, true );
     wp_enqueue_script( 'bs-dropdown-ml', CBAT_THEME_URI.'/assets/js/bootstrap-dropdown-ml-hack.js', array('jquery'), null, true );
+    wp_enqueue_script( 'cbat-js', CBAT_THEME_URI.'/assets/js/main.js', array('jquery'), CBAT_THEME_VERSION, true );
   }
 
   function admin_assets( $hook ){
