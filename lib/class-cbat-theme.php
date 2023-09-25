@@ -3,7 +3,7 @@
 /**
  * BOOTSTRAPS THEME SPECIFIC FUNCTIONALITIES
  */
-class CBAT_THEME {
+class CBAT_THEME extends CBAT_BASE {
 
   public function __construct() {
 
@@ -40,4 +40,4 @@ class CBAT_THEME {
 
 }
 
-new CBAT_THEME;
+CBAT_THEME::getInstance();

@@ -1,6 +1,6 @@
 <?php
 
-class CBAT_Woocommerce extends CBAT_BASE {
+class CBAT_WOOCOMMERCE extends CBAT_BASE {
 
   private $is_woocommerce_active;
 
@@ -20,4 +20,4 @@ class CBAT_Woocommerce extends CBAT_BASE {
 
 }
 
-CBAT_Woocommerce::getInstance();
+CBAT_WOOCOMMERCE::getInstance();

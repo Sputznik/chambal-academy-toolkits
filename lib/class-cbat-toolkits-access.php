@@ -1,6 +1,6 @@
 <?php
 
-class CBAT_Toolkits_Access extends CBAT_BASE {
+class CBAT_TOOLKITS_ACCESS extends CBAT_BASE {
 
   private $user_products_page_url;
 
@@ -118,4 +118,4 @@ class CBAT_Toolkits_Access extends CBAT_BASE {
 
 }
 
-CBAT_Toolkits_Access::getInstance();
+CBAT_TOOLKITS_ACCESS::getInstance();
