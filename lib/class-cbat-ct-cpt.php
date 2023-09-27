@@ -4,7 +4,7 @@ class CBAT_CT_CPT extends CBAT_BASE {
 
   function __construct(){
 
-    /* CREATING CPT USING ORBIT BUNDLE PLUGIN AS DEPENDANCY */
+    /* CREATING CPT USING ORBIT BUNDLE PLUGIN AS DEPENDENCY */
     add_filter( 'orbit_post_type_vars', function( $post_types ){
       $post_types['ct'] = array(
         'slug' 		=> 'ct',
@@ -21,6 +21,27 @@ class CBAT_CT_CPT extends CBAT_BASE {
         'supports'	=> array( 'title', 'editor', 'thumbnail' )
       );
       return $post_types;
+    } );
+
+    /* CREATING METAFIELD USING ORBIT BUNDLE PLUGIN AS DEPENDENCY */
+    add_filter( 'orbit_meta_box_vars', function( $meta_box ){
+    	$meta_box['ct'] = array(
+    		array(
+    			'id'			=> 'ct-meta-field',
+    			'title'		=> 'Additional Information',
+    			'fields'	=> array(
+    				'ct_user_role' => array(
+    					'type' => 'dropdown',
+    					'text' => 'Grant Permission',
+    					'options' => array(
+                'ds_learner'  => 'Learner'
+              ),
+              'help' => 'Allow this user-role to access the toolkit directly',
+    				)
+    			)
+    		)
+    	);
+    	return $meta_box;
     } );
 
     add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
