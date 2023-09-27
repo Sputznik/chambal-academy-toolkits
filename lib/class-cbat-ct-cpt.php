@@ -44,6 +44,17 @@ class CBAT_CT_CPT extends CBAT_BASE {
     	return $meta_box;
     } );
 
+    // ADD CAPABILITIES IN POST_TYPE CT
+    add_filter('register_post_type_args', function( $args, $post_type ){
+      if( $post_type === 'ct' ){
+        $args['map_meta_cap']    = true;
+        $args['capability_type'] = 'ct';
+      }
+
+      return $args;
+
+    }, 10, 2 );
+
     add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
 
     add_action( 'save_post', array( $this, 'save_meta_box' ), 10, 1 );
