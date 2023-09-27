@@ -60,6 +60,9 @@ class CBAT_TOOLKITS_ACCESS extends CBAT_BASE {
 
       $toolkit_obj = $wp_query->post ;
 
+      // RETURN IF THE LOGGED-IN USER IS A FREEMIUM USER
+      if( $this->is_freemium_user( $toolkit_obj->ID, $current_user ) ) return;
+
       // RETURN IF TOOLKIT IS NOT PRIVATE
       if( $toolkit_obj->post_status  !== 'private' ) return;
 
@@ -86,14 +89,19 @@ class CBAT_TOOLKITS_ACCESS extends CBAT_BASE {
     $toolkit_id = ( isset( $query_params['p'] ) && $query_params['p'] ) ? $query_params['p'] : 0;
 
     // RETURN IF TOOLKIT-ID / POST_TYPE IS NOT PRESENT IN THE REDIRECT-URL
-    if( !isset( $query_params['post_type'] ) && !$query_params['post_type'] === 'ct' && !$toolkit_id ) return;
+    if( !isset( $query_params['post_type'] ) && !$query_params['post_type'] === 'ct' && !$toolkit_id ) return $redirect;
 
     // GET TOOLKIT STATUS
     $toolkit_status = get_post_status( $toolkit_id );
 
     // RETURN IF TOOLKIT DOEST NOT EXIST
-    if( !$toolkit_status && $toolkit_status !== 'private' ) return;
+    if( !$toolkit_status ) return $redirect;
 
+    // REDIRECT TO THE DEFAULT / GIVEN LOCATION FOR A FREEMIUM USER
+    if( $this->is_freemium_user( $toolkit_id, $user ) ) return $redirect;
+
+    // RETURN IF TOOLKIT IS NOT PRIVATE
+    if( $toolkit_status !== 'private' ) return $redirect;
 
     return $this->is_user_allowed( $toolkit_id, $user ) ? $redirect : $this->user_products_page_url;
   }
@@ -114,6 +122,18 @@ class CBAT_TOOLKITS_ACCESS extends CBAT_BASE {
   // CHECK IF A USER IS ASSIGNED A ROLE
   function has_user_role( $user, $role = 'administrator' ){
     return ( isset( $user->roles ) && is_array( $user->roles ) && in_array( $role, $user->roles ) );
+  }
+
+  // CHECKS IF THE USER HAS FREE ACCESS TO A SPECIFIC TOOLKIT BASED ON USER_ROLE
+  function is_freemium_user( $toolkit_id, $user ){
+    // GET THE TOOLKIT USER ROLE METAFIELD
+    $user_role = get_post_meta( $toolkit_id, 'ct_user_role', true );
+
+    // CHECK IF USER ROLE IS SAME AS ROLE IN TOOLKIT META
+    if( $user_role &&  $this->has_user_role( $user, $user_role ) ) return true;
+
+    return false;
+
   }
 
 }
