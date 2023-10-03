@@ -1735,7 +1735,11 @@ body {
   width: 100%;
 }
 
-.cbat-nav.navbar .dropdown-menu > li > a {
+.cbat-nav.navbar .current-menu-ancestor > a.nav-link {
+  color: rgba(0,0,0,.9) !important;
+}
+
+.cbat-nav.navbar .dropdown-menu > li > a:not(.active) {
   color: rgba(0,0,0,.55);
 }
 
