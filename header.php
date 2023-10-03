@@ -15,7 +15,7 @@
 		      <span class="navbar-toggler-icon"></span>
 		    </button>
 		    <?php
-		      wp_nav_menu( array(
+					wp_nav_menu( array(
 		        'menu'              => 'primary',
 		        'theme_location'    => 'primary',
 		        'depth'             => 2,
@@ -23,8 +23,8 @@
 		        'container_class'   => 'collapse navbar-collapse justify-content-end',
 		        'container_id'      => 'navbar-supported-content',
 		        'menu_class'        => 'navbar-nav mb-2 mb-lg-0',
-		        'fallback_cb'       => 'WP_Bootstrap_Five_Navwalker::fallback',
-		        'walker'            => new WP_Bootstrap_Five_Navwalker()
+						'fallback_cb'       => 'SP_BS_Five_Navwalker::fallback',
+		        'walker'            => new SP_BS_Five_Navwalker()
 		      ) );
 		    ?>
 		  </div>
