@@ -31,11 +31,9 @@ class CBAT_CT_CPT extends CBAT_BASE {
     			'title'		=> 'Additional Information',
     			'fields'	=> array(
     				'ct_user_role' => array(
-    					'type' => 'dropdown',
+              'type' => 'text',
     					'text' => 'Grant Permission',
-    					'options' => array(
-                'ds_learner'  => 'Learner'
-              ),
+              'placeholder' => 'User Role Slug',
               'help' => 'Allow this user-role to access the toolkit directly',
     				)
     			)
